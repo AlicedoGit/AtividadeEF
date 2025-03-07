@@ -1,0 +1,130 @@
+﻿@model Exemplo_EF.Models.Cliente
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif; /* Fonte moderna */
+        background-color: #ffebef; /* Rosa pastel */
+        color: #333; /* Cor do texto */
+    }
+
+    h1 {
+        color: #d63384; /* Títulos em rosa mais forte */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Sombra nos títulos */
+        margin-bottom: 20px; /* Espaçamento inferior */
+    }
+
+    h4 {
+        color: #d63384; /* Títulos em rosa mais forte */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra nos títulos */
+        margin-bottom: 10px; /* Espaçamento inferior */
+    }
+
+    hr {
+        border-top: 2px solid #d63384; /* Linha de separação em rosa mais forte */
+        margin-bottom: 20px; /* Espaçamento inferior */
+    }
+
+    .btn-success, .btn-warning, .btn-info, .btn-danger {
+        border-radius: 12px; /* Bordas arredondadas */
+        color: #fff;
+        margin: 5px; /* Espaçamento entre os botões */
+        padding: 10px 20px; /* Espaçamento interno dos botões */
+        font-weight: bold; /* Negrito nos botões */
+    }
+
+    .btn-success {
+        background-color: #e91e63; /* Botão criar */
+    }
+
+        .btn-success:hover {
+            background-color: #6c757d; /* Cinza */
+            color: #fff; /* Letra branca */
+        }
+
+    .btn-warning {
+        background-color: #ec407a; /* Botão editar */
+    }
+
+        .btn-warning:hover {
+            background-color: #6c757d; /* Cinza */
+            color: #fff; /* Letra branca */
+        }
+
+    .btn-info {
+        background-color: #f50057; /* Botão detalhes */
+    }
+
+        .btn-info:hover {
+            background-color: #6c757d; /* Cinza */
+            color: #fff; /* Letra branca */
+        }
+
+    .btn-danger {
+        background-color: #ad1457; /* Botão excluir */
+    }
+
+        .btn-danger:hover {
+            background-color: #6c757d; /* Cinza */
+            color: #fff; /* Letra branca */
+        }
+
+    .row {
+        background-color: #fff; /* Fundo branco para linhas */
+        border-radius: 15px; /* Bordas arredondadas nas linhas */
+        padding: 20px; /* Espaçamento interno */
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        margin-bottom: 20px; /* Espaçamento inferior */
+    }
+
+    dt, dd {
+        margin-bottom: 10px; /* Espaçamento entre os itens */
+    }
+
+    dt {
+        color: #d63384; /* Títulos das colunas em rosa mais forte */
+        font-weight: bold; /* Negrito nos títulos */
+    }
+
+    dd {
+        font-size: 1.1em; /* Aumentar o tamanho da fonte */
+    }
+
+    .btn-container {
+        margin-top: 20px; /* Espaçamento superior */
+        text-align: right; /* Alinhamento à direita */
+    }
+
+    .container {
+        max-width: 800px; /* Largura máxima da área de conteúdo */
+    }
+</style>
+
+<div class="container mt-4">
+    <h1>Details</h1>
+    <div>
+        <h4>Cliente</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.ClienteName)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ClienteName)
+            </dd>
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Nascimento)
+            </dd>
+        </dl>
+    </div>
+    <div class="btn-container">
+        <a asp-action="Edit" asp-route-id="@Model?.ClienteID" class="btn btn-warning">Editar</a>
+        <a asp-action="Index" class="btn btn-info">Voltar para a Lista</a>
+    </div>
+</div>

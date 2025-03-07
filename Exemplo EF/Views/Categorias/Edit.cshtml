@@ -1,0 +1,133 @@
+﻿@model Exemplo_EF.Models.Categoria
+
+@{
+    ViewData["Title"] = "Editar Categoria";
+}
+
+<div class="container">
+    <h1 class="title">Editar Categoria</h1>
+
+    <div class="edit-container">
+        <h4>Informações da Categoria</h4>
+        <hr />
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CategoriaId" />
+
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label">Nome</label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-save" />
+            </div>
+        </form>
+    </div>
+
+    <div class="btn-group">
+        <a asp-action="Index" class="btn btn-back">📋 Voltar para a Lista</a>
+    </div>
+
+    <div class="text-center">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-home">🏠 Voltar para a Home</a>
+    </div>
+</div>
+
+<style>
+    /* Fonte moderna */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #ffe6eb; /* Rosa pastel bem claro */
+        color: #333;
+    }
+
+    /* Container principal */
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+    }
+
+    /* Título */
+    .title {
+        color: #d63384;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px white;
+        margin-bottom: 20px;
+    }
+
+    /* Container de edição */
+    .edit-container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Campos de formulário */
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        padding: 10px;
+    }
+
+    /* Grupo de botões */
+    .btn-group {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* Estilização dos botões */
+    .btn {
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 20px; /* Botões arredondados */
+        border: 2px solid white; /* Pequena borda branca */
+        transition: 0.3s;
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .btn-save {
+        background-color: #28a745;
+        color: white;
+    }
+
+        .btn-save:hover {
+            background-color: #218838;
+        }
+
+    .btn-back {
+        background-color: #6c757d;
+        color: white;
+    }
+
+        .btn-back:hover {
+            background-color: #5a6268;
+        }
+
+    /* Botão Home */
+    .btn-home {
+        background-color: #17a2b8;
+        color: white;
+        font-weight: bold;
+    }
+
+        .btn-home:hover {
+            background-color: #138496;
+        }
+</style>
+
+<!-- Fonte Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+

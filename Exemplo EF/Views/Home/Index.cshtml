@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- Importando a fonte Poppins do Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        background-color: #ffe4e1; /* Fundo rosa pastel */
+        font-family: 'Poppins', sans-serif; /* Fonte aplicada */
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #d81b60; /* Rosa forte */
+        font-size: 3rem;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+
+    p {
+        color: black;
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 10px auto;
+        line-height: 1.6;
+    }
+
+    .btn-custom {
+        display: inline-block;
+        background-color: #d81b60;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+        transition: 0.3s;
+    }
+
+        .btn-custom:hover {
+            background-color: #ad1457;
+        }
+
+    .highlights {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+    }
+
+    .highlight {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        max-width: 300px;
+        margin: 10px;
+        text-align: left;
+    }
+
+        .highlight img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+    .highlight-title {
+        font-size: 1.5rem;
+        color: #d81b60;
+        margin-top: 10px;
+    }
+
+    .highlight-text {
+        color: black;
+        font-size: 1rem;
+        margin-top: 10px;
+        line-height: 1.4;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Bem-vindo</h1>
+    <p>Saiba mais sobre <a href="https://learn.microsoft.com/aspnet/core" target="_blank">como construir Web Apps com ASP.NET Core</a>.</p>
+    <a href="/sobre" class="btn-custom">Saiba mais</a>
+</div>
+
+<div class="highlights">
+    <div class="highlight">
+        <img src="~/boneca-barbie-rosa-com-oculos-na-loja-prada-no-estilo-de-foto-de-alta-qualidade-altamente-detalhada_577115-26076.png" alt="Destaque 1">
+        <h2 class="highlight-title">Empoderamento Feminino com a Barbie</h2>
+        <p class="highlight-text">A Barbie sempre foi uma fonte de inspiração para milhões de meninas ao redor do mundo. Agora, com sua versão empreendedora, ela se torna um ícone do empoderamento feminino, mostrando que as mulheres podem conquistar seus sonhos e liderar com coragem e criatividade.</p>
+    </div>
+    <div class="highlight">
+        <img src="~/barbie-alice.jpg" alt="Destaque 2">
+        <h2 class="highlight-title">Inovação no Mundo dos Negócios</h2>
+        <p class="highlight-text">Com a Barbie empreendedora, o mundo dos negócios ganha uma nova visão. Ela traz inovação e modernidade, quebrando barreiras e desafiando os padrões tradicionais, mostrando que qualquer um, independentemente do gênero, pode ter sucesso no mercado.</p>
+    </div>
+    <div class="highlight">
+        <img src="~/uma-boneca-barbie-sentada-em-uma-mesa-com-um-laptop_852340-4275.png" alt="Destaque 3">
+        <h2 class="highlight-title">A Barbie Como Líder de Mudança</h2>
+        <p class="highlight-text">Não é apenas uma boneca, é uma líder. A Barbie empreendedora inspira novas gerações a se envolverem ativamente em causas sociais e empresariais, liderando mudanças no mercado e encorajando mais jovens a se tornarem líderes visionários.</p>
+    </div>
+</div>

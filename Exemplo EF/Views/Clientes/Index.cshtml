@@ -1,0 +1,146 @@
+﻿@model IEnumerable<Exemplo_EF.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Lista de Clientes";
+}
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif; /* Fonte moderna */
+        background-color: #ffebef; /* Rosa pastel */
+    }
+
+    h1 {
+        color: #d63384; /* Títulos em rosa mais forte */
+    }
+
+    .btn-success, .btn-warning, .btn-info, .btn-danger {
+        border-radius: 12px; /* Bordas arredondadas */
+        color: #fff;
+        margin: 5px; /* Espaçamento entre os botões */
+    }
+
+    .btn-success {
+        background-color: #e91e63; /* Botão criar */
+    }
+
+        .btn-success:hover {
+            background-color: #6c757d; /* Cinza */
+            color: #fff; /* Letra branca */
+        }
+
+    .btn-warning {
+        background-color: #ec407a; /* Botão editar */
+    }
+
+        .btn-warning:hover {
+            background-color: #6c757d; /* Cinza */
+            color: #fff; /* Letra branca */
+        }
+
+    .btn-info {
+        background-color: #f50057; /* Botão detalhes */
+    }
+
+        .btn-info:hover {
+            background-color: #6c757d; /* Cinza */
+            color: #fff; /* Letra branca */
+        }
+
+    .btn-danger {
+        background-color: #ad1457; /* Botão excluir */
+    }
+
+        .btn-danger:hover {
+            background-color: #6c757d; /* Cinza */
+            color: #fff; /* Letra branca */
+        }
+
+    .table {
+        border-collapse: separate;
+        border-spacing: 0 15px; /* Espaçamento entre as linhas */
+    }
+
+    .table-dark {
+        background-color: #f8bbd0; /* Cabeçalho da tabela em rosa pastel */
+        border-radius: 15px 15px 0 0; /* Bordas arredondadas no cabeçalho */
+    }
+
+    .table thead th {
+        border-bottom: 2px solid #d63384; /* Linha inferior do cabeçalho */
+    }
+
+    .table-bordered td, .table-bordered th {
+        border: 1px solid #d63384; /* Borda da tabela em rosa */
+    }
+
+    .table tbody tr {
+        background-color: #fff; /* Fundo branco para linhas */
+        border-radius: 15px; /* Bordas arredondadas nas linhas */
+    }
+
+        .table tbody tr td:first-child {
+            border-top-left-radius: 15px; /* Bordas arredondadas na primeira coluna */
+            border-bottom-left-radius: 15px; /* Bordas arredondadas na primeira coluna */
+        }
+
+        .table tbody tr td:last-child {
+            border-top-right-radius: 15px; /* Bordas arredondadas na última coluna */
+            border-bottom-right-radius: 15px; /* Bordas arredondadas na última coluna */
+        }
+</style>
+
+<div class="container mt-4">
+    <div class="text-center">
+        <h1 class="fw-bold">Lista de Clientes</h1>
+        <p class="text-muted">Gerencie os clientes cadastrados no sistema.</p>
+
+        <div class="d-flex justify-content-end mb-3">
+            <a asp-action="Create" class="btn btn-success fw-bold">
+                <i class="bi bi-plus-circle"></i> Criar Novo Cliente
+            </a>
+        </div>
+
+        @foreach (var item in Model)
+        {
+            <div class="table-responsive mb-4">
+                <table class="table table-hover table-bordered align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="text-center">Nome do Cliente</th>
+                            <th class="text-center">Data de Nascimento</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.ClienteName)</td>
+                            <td class="text-center">@Html.DisplayFor(modelItem => item.Nascimento)</td>
+                            <td class="text-center">
+                                <a asp-action="Edit" asp-route-id="@item.ClienteID" class="btn btn-warning btn-sm">
+                                    <i class="bi bi-pencil me-1"></i> Editar
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.ClienteID" class="btn btn-info btn-sm text-white">
+                                    <i class="bi bi-eye me-1"></i> Detalhes
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.ClienteID" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash me-1"></i> Excluir
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+
+    @section Scripts {
+        <script>
+            // Inicializa tooltips do Bootstrap
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        </script>
+    }
+</div>

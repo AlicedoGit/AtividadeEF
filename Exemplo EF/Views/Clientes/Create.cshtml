@@ -1,0 +1,89 @@
+﻿@model Exemplo_EF.Models.Cliente
+
+@{
+    ViewData["Title"] = "Criar Usuário";
+}
+
+<style>
+    body {
+        background-color: #ffe4e1; /* Fundo rosa pastel */
+        font-family: Arial, sans-serif;
+    }
+
+    h1, h4 {
+        color: #d81b60; /* Rosa mais forte para os títulos */
+        text-align: center;
+    }
+
+    .form-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        margin: auto;
+    }
+
+    label, a {
+        color: black; /* Texto preto para não títulos */
+    }
+
+    .btn-primary {
+        background-color: #d81b60; /* Rosa forte */
+        border-color: #d81b60;
+        border-radius: 10px;
+    }
+
+        .btn-primary:hover {
+            background-color: #ad1457;
+            border-color: #ad1457;
+        }
+
+    .btn-secondary {
+        background-color: #f8bbd0; /* Rosa claro */
+        color: black;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 20px;
+    }
+
+        .btn-secondary:hover {
+            background-color: #f48fb1; /* Tom um pouco mais escuro no hover */
+        }
+</style>
+
+<h1>Criar Usuário</h1>
+<h4>Preencha os dados do Cliente</h4>
+<hr />
+
+<div class="form-container">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="ClienteName" class="control-label"></label>
+            <input asp-for="ClienteName" class="form-control" placeholder="Digite o nome do cliente" />
+            <span asp-validation-for="ClienteName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Nascimento" class="control-label"></label>
+            <input asp-for="Nascimento" class="form-control" type="date" />
+            <span asp-validation-for="Nascimento" class="text-danger"></span>
+        </div>
+
+        <div class="form-group text-center">
+            <input type="submit" value="Criar" class="btn btn-primary btn-lg w-100 mt-3" />
+        </div>
+    </form>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn btn-secondary">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

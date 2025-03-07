@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Exemplo_EF.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<div class="container">
+    <h1 class="title">Lista de Categorias</h1>
+
+    <p class="text-center">
+        <a asp-action="Create" class="btn btn-add">+ Nova Categoria</a>
+    </p>
+
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome da Categoria</th>
+                    <th class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                        <td class="text-center">
+                            <a asp-action="Edit" asp-route-id="@item.CategoriaId" class="btn btn-edit">Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.CategoriaId" class="btn btn-details">Detalhes</a>
+                            <a asp-action="Delete" asp-route-id="@item.CategoriaId" class="btn btn-delete">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-home">🏠 Voltar para a Home</a>
+    </div>
+</div>
+
+<style>
+    /* Fonte moderna */
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #ffe6eb; /* Rosa pastel bem claro */
+        color: #333;
+    }
+
+    /* Container principal */
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 30px;
+    }
+
+    /* Título principal */
+    .title {
+        color: #d63384; /* Rosa mais escuro */
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px white;
+        margin-bottom: 20px;
+    }
+
+    /* Botão de adicionar */
+    .btn-add {
+        background-color: #d63384;
+        color: white;
+    }
+
+    /* Container da tabela */
+    .table-container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Tabela */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th {
+            background-color: #d63384;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+    /* Estilização dos botões */
+    .btn {
+        padding: 8px 16px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 20px; /* Agora são arredondados */
+        border: 2px solid white; /* Pequena borda branca */
+        transition: 0.3s;
+        display: inline-block;
+        margin: 4px;
+    }
+
+    .btn-edit {
+        background-color: #ffc107;
+        color: white;
+    }
+
+        .btn-edit:hover {
+            background-color: #e0a800;
+        }
+
+    .btn-details {
+        background-color: #17a2b8;
+        color: white;
+    }
+
+        .btn-details:hover {
+            background-color: #138496;
+        }
+
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+    }
+
+        .btn-delete:hover {
+            background-color: #c82333;
+        }
+
+    /* Botão Home */
+    .btn-home {
+        background-color: #6c757d; /* Cinza para diferenciar */
+        color: white;
+        font-weight: bold;
+    }
+
+        .btn-home:hover {
+            background-color: #5a6268;
+        }
+</style>
+
+<!-- Link para carregar a fonte Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
