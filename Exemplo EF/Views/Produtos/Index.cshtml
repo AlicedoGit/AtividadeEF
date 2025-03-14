@@ -1,0 +1,128 @@
+﻿<style>
+    body {
+        background-color: #ffe6f2; /* Rosa pastel bem claro */
+        font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+        color: #333;
+        text-align: center; /* Centraliza o conteúdo */
+    }
+
+    h1 {
+        color: #d63384; /* Rosa mais escuro */
+        text-shadow: 2px 2px 4px white;
+    }
+
+    .table {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0 auto; /* Centraliza a tabela */
+        width: 80%;
+    }
+
+        .table th {
+            background-color: #ffb3d9; /* Rosa pastel mais escuro */
+            color: white;
+        }
+
+        .table td, .table th {
+            padding: 12px;
+            text-align: left;
+        }
+
+    a:not(.nav-link) {
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-criar, .btn-criar-categoria {
+        background: #ff66a3;
+        color: white;
+        padding: 12px 18px;
+        font-size: 16px;
+        display: inline-block;
+        margin-bottom: 20px;
+        border-radius: 25px; /* Borda arredondada */
+        border: none;
+    }
+
+        .btn-criar:hover, .btn-criar-categoria:hover {
+            background: #ff3385;
+            color: #d9d9d9; /* Cinza claro */
+        }
+
+    .btn-editar {
+        background: #ff66a3;
+        color: white;
+        border-radius: 20px;
+    }
+
+        .btn-editar:hover {
+            background: #ff3385;
+            color: #d9d9d9; /* Cinza claro */
+        }
+
+    .btn-detalhes {
+        background: #ff99cc;
+        color: white;
+        border-radius: 20px;
+    }
+
+        .btn-detalhes:hover {
+            background: #ff66b2;
+            color: #d9d9d9; /* Cinza claro */
+        }
+
+    .btn-excluir {
+        background: #ffccd9;
+        color: white;
+        border-radius: 20px;
+    }
+
+        .btn-excluir:hover {
+            background: #ff99aa;
+            color: #d9d9d9; /* Cinza claro */
+        }
+</style>
+
+@model IEnumerable<Exemplo_EF.Models.Produto>
+
+@{
+    ViewData["Title"] = "Índice";
+}
+
+<h1>Produtos</h1>
+
+<p>
+    <a asp-action="Create" class="btn-criar">Criar Novo Produto</a>
+    <a asp-action="CreateCategory" class="btn-criar-categoria">Criar Nova Categoria</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nome)</th>
+            <th>@Html.DisplayNameFor(model => model.Estoque)</th>
+            <th>@Html.DisplayNameFor(model => model.CategoriaId)</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Estoque)</td>
+                <td>@Html.DisplayFor(modelItem => item.Categoria.Nome)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProdutoId" class="btn-editar">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.ProdutoId" class="btn-detalhes">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.ProdutoId" class="btn-excluir">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Link para carregar a fonte Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">

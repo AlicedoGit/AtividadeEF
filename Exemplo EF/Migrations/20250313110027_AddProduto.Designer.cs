@@ -4,6 +4,7 @@ using Exemplo_EF.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Exemplo_EF.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20250313110027_AddProduto")]
+    partial class AddProduto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,9 +64,6 @@ namespace Exemplo_EF.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CategoriaId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<int>("Estoque")
                         .HasColumnType("int");
 
@@ -73,25 +73,7 @@ namespace Exemplo_EF.Migrations
 
                     b.HasKey("ProdutoId");
 
-                    b.HasIndex("CategoriaId");
-
                     b.ToTable("Produtos", (string)null);
-                });
-
-            modelBuilder.Entity("Exemplo_EF.Models.Produto", b =>
-                {
-                    b.HasOne("Exemplo_EF.Models.Categoria", "Categoria")
-                        .WithMany("Produtos")
-                        .HasForeignKey("CategoriaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Categoria");
-                });
-
-            modelBuilder.Entity("Exemplo_EF.Models.Categoria", b =>
-                {
-                    b.Navigation("Produtos");
                 });
 #pragma warning restore 612, 618
         }

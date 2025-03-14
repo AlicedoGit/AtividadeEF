@@ -1,0 +1,82 @@
+﻿<style>
+    body {
+        background-color: #ffe6f2; /* Rosa pastel bem claro */
+        font-family: 'Poppins', sans-serif; /* Fonte Poppins */
+        color: #333;
+        text-align: center; /* Centraliza o conteúdo */
+    }
+
+    h1 {
+        color: #d63384; /* Rosa mais escuro */
+        text-shadow: 2px 2px 4px white;
+    }
+
+    .container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        text-align: left;
+        margin-top: 20px;
+    }
+
+    .btn-editar {
+        background: #ff66a3;
+        color: white;
+        border-radius: 20px;
+        padding: 10px 15px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-editar:hover {
+            background: #ff3385;
+            color: #d9d9d9; /* Cinza claro */
+        }
+
+    .btn-voltar {
+        background: #ff99cc;
+        color: white;
+        border-radius: 20px;
+        padding: 10px 15px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-voltar:hover {
+            background: #ff66b2;
+            color: #d9d9d9; /* Cinza claro */
+        }
+</style>
+
+@model Exemplo_EF.Models.Produto
+
+@{
+    ViewData["Title"] = "Detalhes do Produto";
+}
+
+<h1>Detalhes do Produto</h1>
+
+<div class="container">
+    <h4>Produto</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Nome)</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.Nome)</dd>
+
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Estoque)</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.Estoque)</dd>
+
+        <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Categoria)</dt>
+        <dd class="col-sm-8">@Html.DisplayFor(model => model.Categoria.CategoriaId)</dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ProdutoId" class="btn-editar">Editar</a>
+    <a asp-action="Index" class="btn-voltar">Voltar para a lista</a>
+</div>
+
+<!-- Link para carregar a fonte Poppins -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
